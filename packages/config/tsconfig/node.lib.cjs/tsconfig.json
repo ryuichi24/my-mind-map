@@ -1,0 +1,7 @@
+{
+  "display": "Node Lib CJS",
+  "extends": "../node.cjs/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true
+  }
+}

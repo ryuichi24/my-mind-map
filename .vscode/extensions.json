@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        // for dotenv file syntax highlighting
+        "mikestead.dotenv",
+        // for plantuml file syntax highlighting
+        "jebbs.plantuml",
+        // api client
+        "rangav.vscode-thunder-client"
+    ]
+}

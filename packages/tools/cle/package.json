@@ -1,0 +1,14 @@
+{
+  "name": "@my-mind-maps/cle",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "cle": "src/index.js"
+  },
+  "dependencies": {
+    "@my-mind-maps/file-system": "workspace:*",
+    "commander": "^12.1.0"
+  }
+}

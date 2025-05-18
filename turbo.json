@@ -1,0 +1,62 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  // https://turbo.build/repo/docs/reference/configuration#ui
+  "ui": "stream",
+  // https://turbo.build/repo/docs/reference/configuration#envmode
+  "envMode": "strict",
+  "globalDependencies": [],
+  // https://turbo.build/repo/docs/reference/configuration#globalenv
+  "globalEnv": [
+    "TST_*"
+  ],
+  // https://turbo.build/repo/docs/reference/configuration#globalpassthroughenv
+  "globalPassThroughEnv": [
+    "NODE_ENV"
+  ],
+  // "tasks" are script items in a "package.json" file of each workspace
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      // https://turbo.build/repo/docs/reference/configuration#turbo_default
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!README.md"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ]
+    },
+    "release": {
+      "cache": true,
+      "env": [
+        "GITHUB_RELEASE_TOKEN",
+        "GH_TOKEN",
+        "APPLE_*",
+        "CSC_*"
+      ],
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": [
+        "release/**"
+      ]
+    },
+    // https://turbo.build/repo/docs/crafting-your-repository/configuring-tasks#dependent-tasks-that-can-be-ran-in-parallel
+    "transit": {
+      "dependsOn": [
+        "^transit"
+      ]
+    }
+  }
+}

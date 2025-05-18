@@ -1,0 +1,9 @@
+{
+  "extends": "@my-mind-maps/tsconfig/node",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": [
+    "vite.config.ts"
+  ]
+}

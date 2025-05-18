@@ -1,0 +1,19 @@
+{
+    "extends": "@my-mind-maps/tsconfig/react",
+    "include": [
+        "src",
+    ],
+    "compilerOptions": {
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        }
+    },
+    // dependencies
+    "references": [
+        {
+            "path": "./tsconfig.vite.json"
+        }
+    ],
+}

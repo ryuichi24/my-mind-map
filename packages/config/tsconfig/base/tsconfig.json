@@ -1,0 +1,16 @@
+{
+  "display": "Base",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "strict": true,
+    "sourceMap": true,
+    // skip type checking for third-party libraries installed in node_modules
+    "skipLibCheck": true,
+    "removeComments": true,
+    // Module '"path"' can only be default-imported using the 'allowSyntheticDefaultImports' flag
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "incremental": true,
+    "strictNullChecks": true
+  }
+}

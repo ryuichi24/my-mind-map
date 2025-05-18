@@ -1,0 +1,8 @@
+{
+  "display": "@my-mind-maps/util ESM",
+  "extends": "@my-mind-maps/tsconfig/node.lib",
+  "compilerOptions": {
+    "outDir": "./dist/esm"
+  },
+  "include": ["src"]
+}

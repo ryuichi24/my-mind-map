@@ -1,0 +1,24 @@
+dist
+build
+
+.turbo
+node_modules
+.env
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+!.vscode/c_cpp_properties.json
+
+# mac
+.DS_*
+**/*.backup.*
+**/*.back.*
+
+# dotenv environment variable files
+.env*
+!.env.example

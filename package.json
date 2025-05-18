@@ -1,0 +1,27 @@
+{
+  "name": "my-mind-maps",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "dev": "dotenv -e ./.env -c local -- pnpm dev:web",
+    "dev:web": "turbo run dev --filter={\"./apps/**/*\"}",
+    "build": "turbo run build",
+    "clean": "cle clean . --entries node_modules,.turbo,dist,release",
+    "gen:env": "node -e \"const path = require('path'); const src = path.resolve('./.env.example'); const dest = path.resolve('./.env.local'); require('@my-mind-maps/file-system').cpFileIfNotExist(src, dest);\"",
+    "postinstall": "pnpm build && pnpm gen:env"
+  },
+  "devDependencies": {
+    "@my-mind-maps/cle": "workspace:*",
+    "@my-mind-maps/file-system": "workspace:*",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^8.0.0",
+    "turbo": "^2.4.4"
+  },
+  "engines": {
+    "pnpm": ">=9.2.0",
+    "npm": "use pnpm!!!!!",
+    "yarn": "use pnpm!!!!!"
+  },
+  "packageManager": "pnpm@9.2.0"
+}

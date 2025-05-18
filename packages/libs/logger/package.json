@@ -1,0 +1,44 @@
+{
+  "name": "@my-mind-maps/logger",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "files": [
+    "/dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./strategies": {
+      "import": {
+        "types": "./dist/esm/strategies/index.d.ts",
+        "default": "./dist/esm/strategies/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/strategies/index.d.ts",
+        "default": "./dist/cjs/strategies/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "pnpm build:esm & pnpm build:cjs",
+    "build:esm": "tsb tsconfig.json -t esm",
+    "build:cjs": "tsb tsconfig.cjs.json -t cjs"
+  },
+  "devDependencies": {
+    "@my-mind-maps/tsbuild": "workspace:*",
+    "@my-mind-maps/tsconfig": "workspace:*",
+    "@types/node": "^20.11.20",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}

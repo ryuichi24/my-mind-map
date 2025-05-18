@@ -1,0 +1,87 @@
+{
+    "template for React Function Component": {
+      "prefix": "rf",
+      "body": [
+        "import React from \"react\";",
+        "",
+        "export namespace ${TM_FILENAME_BASE} {",
+        "  export type Props = {$1};",
+        "}",
+        "",
+        "export const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}.Props> = (props) => {",
+        "\tconst {} = props;",
+        "\treturn (<>${TM_FILENAME_BASE}</>);",
+        "}"
+      ],
+      "description": "Typescript React Function Component",
+      "scope": "typescriptreact"
+    },
+    "template for useState": {
+      "prefix": "us",
+      "body": [
+        "const [$1, set${1/(.)/${1:/upcase}/}] = useState<$2>($3);"
+      ],
+      "scope": "typescriptreact"
+    },
+    "template for useEffect": {
+      "prefix": "ue",
+      "body": [
+        "useEffect(() => {",
+        "\t$1",
+        "}, [$2]);"
+      ],
+      "scope": "typescriptreact"
+    },
+    "react context template": {
+      "prefix": "rctx",
+      "description": "react context template",
+      "body": [
+        "import { createContext } from \"react\";",
+        "",
+        "export namespace $1Ctx {",
+        "  export type State = { dispatch: React.Dispatch<ReducerAction> } & ReducerState;",
+        "",
+        "  export type PublicState = Omit<$1Ctx.State, \"dispatch\" | keyof ReducerState>;",
+        "",
+        "  export type ReducerState = {};",
+        "",
+        "  export type ReducerAction = { type: \"\" };",
+        "}",
+        "",
+        "export const $1Ctx = createContext<$1Ctx.State>({ dispatch: () => {} }) as React.Context<$1Ctx.State> & { reducer: typeof reducer };",
+        "",
+        "function reducer(state: $1Ctx.ReducerState, action: $1Ctx.ReducerAction): $1Ctx.ReducerState {",
+        "  const { type } = action;",
+        "",
+        "  switch (type) {",
+        "    default: {",
+        "      return state;",
+        "    }",
+        "  }",
+        "}",
+        "",
+        "$1Ctx.reducer = reducer;"
+      ],
+      "scope": "typescriptreact,typescript"
+    },
+    "react context provider template": {
+      "prefix": "rctxp",
+      "description": "react context provider template",
+      "body": [
+        "import React, { useReducer } from \"react\";",
+        "",
+        "export namespace $1Provider {",
+        "  export type Props = {",
+        "    children: React.ReactNode;",
+        "  };",
+        "}",
+        "",
+        "export const $1Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {",
+        "  const [state, dispatch] = useReducer($1Ctx.reducer, {});",
+        "",
+        "  return <${1}Ctx.Provider value={{ ...state, dispatch }}>{children}</${1}Ctx.Provider>;",
+        "}"
+      ],
+      "scope": "typescriptreact,typescript"
+    }
+  }

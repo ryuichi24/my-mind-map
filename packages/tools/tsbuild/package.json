@@ -1,0 +1,23 @@
+{
+  "name": "@my-mind-maps/tsbuild",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "postinstall": "pnpm build"
+  },
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@my-mind-maps/tsconfig": "workspace:*",
+    "@types/node": "^20.11.20",
+    "typescript": "^5.4.5"
+  },
+  "bin": {
+    "tsb": "dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "Console Shortcut": {
+    "prefix": "clg",
+    "body": [
+      "console.log($1);",
+      "$2"
+    ],
+    "description": "Log output to console",
+    "scope": "javascript,typescript,typescriptreact,javascriptreact"
+  },
+  "template for export all": {
+    "prefix": "ex",
+    "description": "export statement to export all items from module",
+    "body": [
+      "export * from \"$1\";",
+      ""
+    ],
+    "scope": "typescriptreact,javascriptreact,javascript,typescript"
+  },
+  "template for IModule": {
+    "prefix": "im",
+    "description": "template for IModule",
+    "body": [
+      "import { IModule } from \"../utils/app-server-factory.js\";",
+      "",
+      "export class ${1:${TM_FILENAME/(.*)\\.module\\.ts/${1:/pascalcase}/}}Module implements IModule {}"
+    ],
+    "scope": "javascript,typescript"
+  }
+ 
+}

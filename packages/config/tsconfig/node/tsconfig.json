@@ -1,0 +1,10 @@
+{
+  "display": "Node.js",
+  "extends": "../base/tsconfig.json",
+  "compilerOptions": {
+    // https://www.typescriptlang.org/tsconfig/#node16nodenext
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ESNext"
+  }
+}

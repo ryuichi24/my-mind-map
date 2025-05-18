@@ -1,0 +1,8 @@
+{
+  "display": "my-mind-maps/js-utils CJS",
+  "extends": "@my-mind-maps/tsconfig/node.lib.cjs",
+  "compilerOptions": {
+    "outDir": "./dist/cjs"
+  },
+  "include": ["src"]
+}

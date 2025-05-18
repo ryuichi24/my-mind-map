@@ -1,0 +1,54 @@
+{
+    "Repository inteface template": {
+        "scope": "typescript",
+        "prefix": "irepo",
+        "body": [
+           "export namespace ${1:sth}Repository {",
+           "",
+           "  export type ${1:sth} = {};",
+           "",
+           "  export type CreateCommand = {};",
+           "",
+           "  export type Query = {};",
+           "}",
+           "",
+           "export interface ${1:sth}Repository {}",
+           "",
+           "export const ${1:sth}Repository = Symbol(\"${1:sth}Repository\");",
+           ""
+        ],
+        "description": ""
+    },
+    "Configurable Module Types Snippet": {
+        "scope": "typescript",
+        "prefix": "nestmoduleconfigbase",
+        "body": [
+          "import {",
+          "  CommonOptionsBase,",
+          "  CanBuildConfig,",
+          "  SyncRegisterOptionsBase,",
+          "  AsyncRegisterOptionsBase,",
+          "} from \"../configurable-module-base/types\";",
+          "",
+          "export type ${1:sth}ServiceSyncConfig = {};",
+          "",
+          "export type ${1:sth}ServiceAsyncConfig = {};",
+          "",
+          "type ${1:sth}CommonOptions = CommonOptionsBase & {",
+          "  tag: `${string}`;",
+          "};",
+          "",
+          "export type SyncRegister${1:sth}Options = SyncRegisterOptionsBase<${1:sth}ServiceSyncConfig, ${1:sth}CommonOptions>;",
+          "",
+          "export type AsyncRegister${1:sth}Options = AsyncRegisterOptionsBase<${1:sth}ServiceAsyncConfig, ${1:sth}CommonOptions>;",
+          "",
+          "export class ${1:sth}ConfigFactory implements CanBuildConfig<${1:sth}ServiceAsyncConfig> {",
+          "  buildConfig(): ${1:sth}ServiceAsyncConfig | Promise<${1:sth}ServiceAsyncConfig> {",
+          "    throw new Error(\"Method not implemented.\");",
+          "  }",
+          "}",
+          "",
+        ],
+        "description": "Type definitions and factory class for a configurable module"
+      }
+}

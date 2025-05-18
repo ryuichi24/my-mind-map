@@ -1,0 +1,30 @@
+{
+  "name": "@my-mind-maps/type-util",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "pnpm build:esm & pnpm build:cjs",
+    "build:esm": "tsb tsconfig.json -t esm",
+    "build:cjs": "tsb tsconfig.cjs.json -t cjs"
+  },
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@my-mind-maps/tsconfig": "workspace:*",
+    "@my-mind-maps/tsbuild": "workspace:*",
+    "typescript": "^5.4.5"
+  },
+  "main": "./dist/cjs/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  }
+}

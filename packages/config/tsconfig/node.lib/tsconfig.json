@@ -1,0 +1,7 @@
+{
+  "display": "Node.js Lib",
+  "extends": "../node/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true
+  }
+}
