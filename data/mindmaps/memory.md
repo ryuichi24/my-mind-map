@@ -5,43 +5,45 @@ markmap:
   maxWidth: 300
 ---
 
-## Links
+## Memory Cell
 
-- [Website](https://markmap.js.org/)
-- [GitHub](https://github.com/gera2ld/markmap)
+- 1 bit per cell
+- 8 bits = 1 bytes
+- 1 bytes per address
+  - example
+    - `0x77 = 119 in decimal`
+      - "0x" is a prefix of hexadecimal
+        - 1 digit has 16 possibilities
+          - 2ˆ4 = 4 bits
+      - 1st digit has 4 bits
+      - 2nd digit has also 4 bits
+      - `4 bits + 4 bits = 8bits = 1 bytes`
 
-## Related Projects
+## Endianness
 
-- [coc-markmap](https://github.com/gera2ld/coc-markmap) for Neovim
-- [markmap-vscode](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode) for VSCode
-- [eaf-markmap](https://github.com/emacs-eaf/eaf-markmap) for Emacs
+- Endianness refers to the byte order used to **represent multi-byte data types** (like integers) in memory.
 
-## Features
+  - different systems may use different byte orders
 
-Note that if blocks and lists appear at the same level, the lists will be ignored.
+    - Big-Endian
 
-### Lists
+      - Stores **the most significant byte** (the "big end") **at the smallest memory address**. This ordering aligns with how we typically write numbers in human-readable form, with **the most significant digit first**.
 
-- **strong** ~~del~~ _italic_ ==highlight==
-- `inline code`
-- [x] checkbox
-- Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
-    <!-- markmap: fold --> 
-  - [More Katex Examples](#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md)
-- Now we can wrap very very very very long text based on `maxWidth` option
-- Ordered list
-  1. item 1
-  2. item 2
+    - Little-Endian
+      - Stores **the least significant byte** (the "little end") **at the smallest memory address.** This format is commonly used in x86 architectures, such as Intel and AMD processors.
 
-### Blocks
-
-```js
-console.log("hello, JavaScript");
-```
-
-| Products | Price |
-| -------- | ----- |
-| Apple    | 4     |
-| Banana   | 2     |
-
-![](https://markmap.js.org/favicon.png)
+  - examples
+    - in Big-Endian 0x1234 are stored in memory like:
+      - | Address | Value                         |
+        | ------- | ----------------------------- |
+        | 0       | 0x12 (most significant byte)  |
+        | 1       | 0x34 (least significant byte) |
+      - `0x1234 = (16ˆ3 * 1) + (16ˆ2 * 2) + (16ˆ1 * 3) + (16ˆ0 * 4) = 4,660`
+      - 4660 as 16 bit value in decimal
+    - in Little-Endian 0x1234 are stored in memory like:
+      - | Address | Value                         |
+        | ------- | ----------------------------- |
+        | 0       | 0x34 (least significant byte) |
+        | 1       | 0x12 (most significant byte)  |
+      - `0x3412 = (16ˆ3 * 3) + (16ˆ2 * 4) + (16ˆ1 * 1) + (16ˆ0 * 2) = 13,330`
+      - 13330 as 16 bit value in decimal
