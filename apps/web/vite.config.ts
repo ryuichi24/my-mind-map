@@ -3,7 +3,7 @@ import { defineConfig, loadEnv, UserConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 
-const ENV_PREFIX = "TST";
+const ENV_PREFIX = "M3";
 
 export default defineConfig(() => {
   const envFileDir = process.env.INIT_CWD ?? process.cwd();
@@ -27,7 +27,10 @@ export default defineConfig(() => {
         },
         // NOTE: when refering to a local sub module that has "react" as its dependency, vite includes a copy of react into the main source code, which breaks the runtime.
         // This is why, the direct alias to the main "react" module is set here.
-        { find: "react", replacement: path.resolve(process.cwd(), "node_modules/react") },
+        {
+          find: "react",
+          replacement: path.resolve(process.cwd(), "node_modules/react"),
+        },
       ],
     },
     plugins: [react(), tailwindcss()],
